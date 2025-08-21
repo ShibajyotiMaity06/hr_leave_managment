@@ -6,7 +6,7 @@ const Employee = require('../models/Employee');
 exports.ApplyforLeave = async (req , res) => {
 
     try {
-        const {employeeId , startDate , endDate , reason} = req.body()
+        const {employeeId , startDate , endDate , reason} = req.body
     
     // edge case
     //new is used to create a new instance of an object from a constructor function.

@@ -3,7 +3,7 @@ const Employee = require('../models/Employee.js')
 //adding a new employee 
 exports.AddEmployee = async (req , res)=>{
     try {
-        const {name , email , department , joiningDate} = req.body();
+        const {name , email , department , joiningDate} = req.body;
 
         if (!name || !email || !department || !joiningDate){
             return res.status(400).json({error :'all the field are mandotory'})
@@ -18,8 +18,8 @@ exports.AddEmployee = async (req , res)=>{
         await employee.save()
         res.status(200).json({message : 'new employee created' , employee})
 
-    } catch (error) {
-        res.status(500).json({err : error.message});
+    } catch (err) {
+        res.status(500).json({error : err.message});
     }
 }
 
@@ -34,7 +34,7 @@ exports.EmployeeById = async (req , res) => {
 
         res.json({employee})
 
-    } catch (error) {
+    } catch (err) {
         res.status(500).json({ error: err.message });
     }
 }
@@ -44,11 +44,11 @@ exports.EmployeeById = async (req , res) => {
 exports.getAllEmployees = async (req , res) => {
     try {
         const allemployees = await Employee.find({})
-        if (allemployees.length() === 0) {
-            res.status(404).json({error : 'no employees at all '})
+        if (allemployees.length === 0) {
+            return res.status(404).json({error : 'no employees at all '})
         }
-        res.json({allemployees})
-    } catch (error) {
+        res.json({employees:allemployees})
+    } catch (err) {
         res.status(500).json({ error: err.message });
     }
 }

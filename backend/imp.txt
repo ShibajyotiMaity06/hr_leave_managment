@@ -1,3 +1,0 @@
-zKdHdtkYgQOgJGuh = db password
-shibajyotimaity06 = db username
-mongodb+srv://shibajyotimaity06:zKdHdtkYgQOgJGuh@hrleave.kzchm23.mongodb.net/ = url

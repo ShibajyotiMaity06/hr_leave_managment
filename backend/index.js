@@ -5,6 +5,10 @@ app.use(express.json());
 // The code snippet app.use(express.json()); in an Express.js application serves as a middleware function.
 //  Its primary purpose is to parse incoming request bodies that contain JSON data.
 
+
+const cors = require('cors');
+app.use(cors());
+
 const connectDb = require('./db/db.js')
 connectDb()
 
@@ -20,6 +24,7 @@ app.use('/api/leaves', leaveRoutes);
 
 const errorHandler = require('./middlewares/errorHandler');
 app.use(errorHandler);
+
 
 
 const PORT = 5000;
